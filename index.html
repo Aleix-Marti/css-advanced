@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="menu">
+      <img src="code.svg" alt="Home">
+      <a href="quien">Quén somos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Galería</a>
+      <a href="#contacto">Contacto</a>
+      <div class="theme">
+        <label for="light"><img class="light" src="light.svg" alt="Light Mode"></label>
+        <input type="radio" name="theme" id="light" class="visually-hidden">
+        <label for="dark"><img class="dark" src="dark.svg" alt="Dark Mode"></label>
+        <input type="radio" name="theme" id="dark" class="visually-hidden">
+        <label for="system"><img class="system" src="system.svg" alt="OS System Mode"></label>
+        <input type="radio" name="theme" id="system" class="visually-hidden" checked>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <h1 class="bg-text">Curso de CSS</h1>
+    </section>
+    <section class="servicios">
+
+      <!-- <label class="vista" for="vista">Vista</label>
+      <input class="selector" type="checkbox" name="vista" id="vista">
+      <ul class="list">
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <li>item 4</li>
+        <li>item 5</li>
+        <li>item 6</li>
+        <li>item 7</li>
+        <li>item 8</li>
+        <li>item 9</li>
+        <li>item 10</li>
+      </ul> -->
+
+    </section>
+    <section class="contacto">
+      <h2>Contacto</h2>
+
+
+
+      <form id="contactForm" class="form" action="">
+
+        <fieldset class="form-style">
+          <!-- <legend>Elige un estilo</legend> -->
+          <label class="toggle" for="line">Line</label>
+          <input type="radio" name="theme-form" id="line" checked class="visually-hidden">
+          <input type="radio" name="theme-form" id="shadow" class="visually-hidden">
+          <label for="shadow">Shadow</label>
+        </fieldset>
+
+        <fieldset class="field-text">
+          <label for="nombre">Nombre</label>
+          <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre">
+        </fieldset>
+
+        <fieldset class="field-text">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="Escribe tu email">
+        </fieldset>
+
+        <fieldset class="field-check">
+          <label for="flex">Quiero aprender Flexbox</label>
+          <input type="checkbox" name="flex" id="flex">
+          <label for="grid">Quiero aprender Grid</label>
+          <input type="checkbox" name="grid" id="grid">
+          <label for="anim">Quiero aprender animaciones</label>
+          <input type="checkbox" name="anim" id="anim">
+        </fieldset>
+
+        <fieldset class="field-area">
+          <label for="texto">¿Quieres contarnos alguna cosa?</label>
+          <textarea name="texto" id="texto" cols="30" rows="10" placeholder="¿Qué nos quieres contar?"></textarea>
+        </fieldset>
+        
+        <fieldset class="field-rgpd">
+          <label for="rgpd">He leído y acepto la <a href="">política de privacidad</a></label>
+          <input type="checkbox" name="rgpd" id="rgpd" class="visually-hidden">
+        </fieldset>
+
+        <input type="submit" value="Enviar">
+      </form>
+      <div id="resp"></div>
+    </section>
+    <script>
+      const resp = document.querySelector('#resp')
+      const form = document.querySelector('#contactForm');
+      form.onsubmit = () => {
+        resp.classList.add('spinner')
+        setTimeout(()=>{
+          resp.classList.remove('spinner')
+          resp.innerText = 'Formulario enviado correctamente'
+        },2000)
+      }
+    </script>
+  </main>
+</body>
+</html>

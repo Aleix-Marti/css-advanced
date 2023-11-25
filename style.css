@@ -1,0 +1,460 @@
+:root {
+  --color-aqua: aquamarine;
+  --color-turq: turquoise;
+  --color-black: #111;
+  /* --mid: 78%;
+  --dark: 88%;
+  --light: 58%; */
+
+  /* --color-dark-blue: rgb(0, 0, 65 / 0.85); */
+  /* --color-dark-blue: rgb(0, 0, 65); */
+  
+  --color-green: hsl(120, 100%, 80%);
+  --color-blue: hsl(240, 100%, 30%);
+
+  /* --color-dark-green: hsl(120, 100%, var(--dark));
+  --color-light-green: hsl(120, 100%, var(--light));
+
+  --color-dark-blue: hsl(240, 100%, var(--dark));
+  --color-light-blue: hsl(240, 100%, var(--light)); */
+
+
+  --color-lightgray: #eeeeee;
+  --color-darkgray: #ccc;
+  --color-dark: #222;
+  --color-black: black;
+
+  --gradient-text: lch(67 33.39 287.99 / 0.85);
+
+
+  --bg-form: transparent;
+
+  --theme-primary: var(--color-green);
+  --theme-secondary: var(--color-dark-blue);
+  --theme-background:var(--color-dark);
+  --theme-text:var(--color-lightgray);
+
+  --accent: var(--theme-primary);
+
+
+
+
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/***************/
+/*  Utilities  */
+/***************/
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+
+
+body {
+  --theme-primary: var(--color-green);
+  --theme-secondary: var(--color-aqua);
+  --theme-background:var(--color-dark);
+  --theme-text:var(--color-lightgray);
+  --accent: var(--theme-primary);
+
+
+  --theme-primary-auto: var(--color-green);
+  --theme-secondary-auto: var(--color-aqua);
+  --theme-background-auto:var(--color-dark);
+  --theme-text-auto:var(--color-lightgray);
+
+  background-color: var(--theme-background);
+  color: var(--theme-text);
+  font-family: 'Montserrat', Arial, sans-serif;
+
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+  --theme-primary-auto: var(--color-green);
+  --theme-secondary-auto: var(--color-aqua);
+  --theme-background-auto:var(--color-dark);
+  --theme-text-auto:var(--color-lightgray);
+  }
+}
+@media (prefers-color-scheme: light) {
+  body {
+  --theme-primary-auto: var(--color-blue);
+  --theme-secondary-auto: var(--color-turk);
+  --theme-background-auto:var(--color-lightgray);
+  --theme-text-auto:var(--color-black);
+  }
+}
+
+a {
+  color:var(--theme-primary);
+}
+
+/************/
+/*  Header  */
+/************/
+
+.menu {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+.menu > img {
+  margin-right: auto;
+}
+.theme, 
+.theme label {
+  display: flex;
+  cursor: pointer;
+}
+.theme label:hover img {
+  filter:invert(0.6);
+}
+label:has(+input:checked) img {
+  filter:invert(0.4);
+} 
+
+body:has(.theme #dark:checked) {
+  --theme-primary: var(--color-green);
+  --theme-secondary: var(--color-aqua);
+  --theme-background:var(--color-dark);
+  --theme-text:var(--color-lightgray);
+}
+body:has(.theme #light:checked) {
+  --theme-primary: var(--color-blue);
+  --theme-secondary: var(--color-turq);
+  --theme-background:var(--color-lightgray);
+  --theme-text:var(--color-black);
+}
+body:has(.theme #system:checked) {
+  --theme-primary: var(--theme-primary-auto);
+  --theme-secondary: var(--theme-secondary-auto);
+  --theme-background:var(--theme-background-auto);
+  --theme-text:var(--theme-text-auto);
+}
+
+
+
+/****************/
+/*  Formulario  */
+/****************/
+
+.form-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  padding: 0;
+  color: var(--theme-primary);
+}
+.toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-inline-end: 6rem;
+}
+.toggle::after {
+  content: '';
+  position: absolute;
+  left: calc(100% + 1rem);
+  display: block;
+  width: 4rem;
+  height: 2rem;
+  border: 2px solid var(--theme-primary);
+  border-radius: 2rem;
+}
+.toggle::before {
+  content: '';
+  position: absolute;
+  left: calc(100% + 1rem);
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+  background-color: var(--theme-primary);
+  transition: all .3s;
+}
+.form-style:has(#line:checked) .toggle::before {
+  left: calc(100% + 1rem);
+}
+.form-style:has(#line:not(:checked)) .toggle::before {
+  left: calc(100% + 3rem);
+}
+
+
+
+
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: min(80vw, 700px);
+  margin: 0 auto;
+  accent-color: var(--accent);
+}
+
+.form label {
+  color: var(--theme-text);
+  cursor: pointer;
+}
+
+.form input {
+  color: var(--theme-text);
+  font-size: 1rem;
+  background-color: transparent;
+}
+
+
+
+
+
+/* .labelrow label { */
+.contacto:has(#line:checked) .form .field-text {
+  position: relative;
+  padding: 0;
+  border: 0;
+}
+.contacto:has(#line:checked) .form .field-text label {
+  display: block;
+  position: absolute;
+  bottom: .5rem;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+  /* transform: translateY(0) */
+}
+.contacto:has(#line:checked) .form .field-text:has(input:focus) label,
+.contacto:has(#line:checked) .form .field-text:has(input:not(:placeholder-shown)) label {
+  color: var(--theme-primary);
+  transform: translateY(-120%) scale(0.9);
+}
+
+/* fieldset:has(input:not(:placeholder-shown)) label {
+  color: blue;
+} */
+
+.contacto:has(#line:checked) .form input::placeholder {
+  color: transparent;
+}
+.contacto:has(#line:checked) .form input:not([type="checkbox"]):focus {
+  outline: none;
+}
+.contacto:has(#line:checked) .form input:focus {
+  outline-color: var(--theme-primary);
+}
+
+.contacto:has(#line:checked) .form input {
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid var(--theme-primary);
+  background-color: transparent;
+}
+
+.contacto:has(#line:checked) .form .field-check {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-items: start;
+  gap: 1rem;
+  border: 0;
+  padding: 0;
+}
+.contacto:has(#line:checked) .form input[type="checkbox"] {
+  width: auto;
+}
+
+.contacto:has(#line:checked) .form .field-area {
+  position: relative;
+  display: grid;
+  border: 0;
+  padding: 0;
+}
+.contacto:has(#line:checked) .form textarea {
+  height: 50px;
+  color: var(--theme-text);
+  /* background-color: var(--theme-background); */
+  transition: height .3s;
+  border: 0;
+  line-height: 2rem;
+  background: linear-gradient(var(--theme-background), var(--theme-background) 1.9rem, var(--theme-primary), 1.9rem, var(--theme-primary));
+  background-size: 100% 2rem;
+  background-repeat: repeat-y;
+  resize: none;
+}
+.contacto:has(#line:checked) .form textarea::placeholder {
+  color: transparent;
+}
+.contacto:has(#line:checked) .form textarea:focus,
+.contacto:has(#line:checked) .form textarea:not(:placeholder-shown) {
+  height: 200px;
+  outline: none;
+}
+.contacto:has(#line:checked) .form .field-area label {
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+  /* transform: translateY(0) */
+}
+.contacto:has(#line:checked) .form .field-area:has(textarea:focus) label,
+.contacto:has(#line:checked) .form .field-area:has(textarea:not(:placeholder-shown)) label {
+  color: var(--theme-primary);
+  transform: scale(0.9) translate(-1rem, -2rem);
+}
+
+
+.contacto:has(#line:checked) .form .field-rgpd {
+  border: none;
+  padding: 0;
+}
+
+.contacto:has(#line:checked) .form .field-rgpd label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+.contacto:has(#line:checked) .form .field-rgpd label::after {
+  content: '';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--theme-primary);
+}
+.contacto:has(#line:checked) .form .field-rgpd label:has(+input:checked)::after {
+  content: '✓';
+  color: black;
+  background-color: var(--theme-primary);
+}
+
+
+
+
+
+
+
+.contacto:has(#shadow:checked) fieldset:not(.form-style) {
+  border: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.contacto:has(#shadow:checked) .form input {
+  padding: 1rem;
+  border: 1px solid var(--theme-primary);
+  background-color: var(--theme-background);
+  /* box-shadow: 0 2px 10px 5px var(--theme-primary),
+              inset 0 0 0 0 var(--theme-primary); */
+  transition: all .3s;
+}
+.contacto:has(#shadow:checked) .form input:focus {
+  outline: none;
+  border-radius: 6px;
+  animation: shadow 2s infinite alternate;
+  /* box-shadow: 0 0 0 0 var(--theme-primary),
+              inset 0 0 10px 1px var(--theme-primary); */
+}
+
+@keyframes shadow {
+  from {
+    box-shadow: inset 0 0 15px -5px var(--theme-primary);
+  } 
+  to {
+    box-shadow: inset 0 0 15px 1px var(--theme-primary);
+  }
+  
+}
+
+
+
+.vista {
+  display: flex;
+  position: relative;
+  width: 2rem;
+  height: 1rem; 
+}
+.vista::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  background-color: transparent;
+  border: 2px solid;
+}
+.vista::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  background-color: transparent;
+  border: 2px solid;
+}
+.vista:has(.selector:checked)::before {
+  background-color: red;
+}
+.vista:has(.selector:checked)::after {
+  background-color: transparent;
+}
+.vista:has(.selector:not(:checked))::before {
+  background-color: transparent;
+}
+.vista:has(.selector:not(:checked))::after {
+  background-color: red;
+}
+
+
+ul.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.selector:checked + ul.list {
+  flex-direction: column;
+}
+
+.bg-text {
+  background: linear-gradient(115deg, blue, red, lime, blue);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200%;
+  background-position: 100% 0%;
+  animation: colortext 2s linear infinite alternate;
+}
+
+
+@keyframes rotatebg {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(360deg);
+
+  }
+}
+
+@keyframes colortext {
+  from {
+    background-position: 100% 0%;
+  }
+  to {
+    background-position: 0% 0%;
+  }
+}
