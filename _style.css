@@ -2,9 +2,22 @@
   --color-aqua: aquamarine;
   --color-turq: turquoise;
   --color-black: #111;
+  /* --mid: 78%;
+  --dark: 88%;
+  --light: 58%; */
 
+  /* --color-dark-blue: rgb(0, 0, 65 / 0.85); */
+  /* --color-dark-blue: rgb(0, 0, 65); */
+  
   --color-green: hsl(120, 100%, 80%);
   --color-blue: hsl(240, 100%, 30%);
+
+  /* --color-dark-green: hsl(120, 100%, var(--dark));
+  --color-light-green: hsl(120, 100%, var(--light));
+
+  --color-dark-blue: hsl(240, 100%, var(--dark));
+  --color-light-blue: hsl(240, 100%, var(--light)); */
+
 
   --color-lightgray: #eeeeee;
   --color-darkgray: #ccc;
@@ -346,66 +359,28 @@ body:has(.theme #system:checked) {
   padding: 0;
 }
 
-.form label:has(+input[type="checkbox"].visually-hidden)::after{
-  --radius: 0;
-  --size-input: 1.2rem;
-  --size-input-inset: .5rem;
-}
-.form label:has(+input[type="radio"].visually-hidden)::after{
-  --radius: 50%;
-  --size-input: 1.2rem;
-  --size-input-inset: .5rem;
-}
-
-.form label:has(+input.visually-hidden)  {
+.contact:has(#line:checked) .form .field-rgpd label {
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 1rem;
   cursor: pointer;
 }
-.form label:has(+input.visually-hidden)::after {
+.contact:has(#line:checked) .form .field-rgpd label::after {
   content: '';
   display: flex;
   justify-content: center;
   align-items: center;
-  width: var(--size-input);
-  height: var(--size-input);
+  width: 1rem;
+  height: 1rem;
   border: 2px solid var(--theme-primary);
-  border-radius: var(--radius);
 }
-.form label:has(+input.visually-hidden:checked)::after {
-  /* content: '✓'; */
-  color: var(--color-black);
+.contact:has(#line:checked) .form .field-rgpd label:has(+input:checked)::after {
+  content: '✓';
+  color: black;
   background-color: var(--theme-primary);
-  box-shadow: inset 0 0 1px 2px var(--color-black);
-  animation: pulse .3s ease-out;
+}
 
-}
-/* .form label:has(+input.visually-hidden:checked)::before {
-  content: '';
-  position: absolute;
-  right: 0.2rem;
-  top: 0.3rem;
-  width: 0.7rem;
-  height: 0.4rem;
-  border: 0;
-  border-bottom: 2px solid var(--color-black);
-  border-left: 2px solid var(--color-black);
-  transform: rotate(-45deg);
-} */
-@keyframes pulse {
-  0% {
-    filter: drop-shadow(0 0 0 var(--theme-primary))
-  }
-  80% {
-    filter: drop-shadow(0 0 .4rem var(--theme-primary))
-  }
-  100% {
-    filter: drop-shadow(0 0 .5rem var(--theme-primary))
-  }
-}
 
 
 
