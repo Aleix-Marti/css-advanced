@@ -61,25 +61,25 @@
       <article class="contact-info">
         <form id="contactForm" class="form" action="">
 
-          <fieldset class="form-style">
+          <fieldset class="form-style form-switch">
             <!-- <legend>Elige un estilo</legend> -->
             <label class="toggle" for="line">Line</label>
-            <input type="radio" name="theme-form" id="line" checked class="visually-hidden">
-            <input type="radio" name="theme-form" id="shadow" class="visually-hidden">
+            <input type="radio" name="theme-form" id="line" checked class="check-toggle">
+            <input type="radio" name="theme-form" id="shadow" class="check-toggle">
             <label for="shadow">Shadow</label>
           </fieldset>
 
-          <fieldset class="field-text">
+          <fieldset class="field-text form-name">
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre">
           </fieldset>
 
-          <fieldset class="field-text">
+          <fieldset class="field-text form-email">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" placeholder="Escribe tu email">
           </fieldset>
 
-          <fieldset class="field-check">
+          <fieldset class="field-check form-learn">
             <legend>¿Qué te gustaría aprender?</legend>
             <label for="flex">Quiero aprender Flexbox</label>
             <input type="checkbox" name="flex" id="flex" class="visually-hidden">
@@ -92,7 +92,7 @@
             <!-- <input type="checkbox" name="anim" id="anim"> -->
           </fieldset>
 
-          <fieldset class="field-radio">
+          <fieldset class="field-radio form-level">
             <legend>¿Cuál consideras que es tu nivel?</legend>
             <label for="junior">Principiante</label>
             <!-- <input type="radio" name="level" id="junior" checked> -->
@@ -105,18 +105,21 @@
             <input type="radio" name="level" id="senior" class="visually-hidden">
           </fieldset>
 
-          <fieldset class="field-area">
+          <fieldset class="field-area form-message">
             <label for="texto">¿Quieres contarnos alguna cosa?</label>
             <textarea name="texto" id="texto" cols="30" rows="10" placeholder="¿Qué nos quieres contar?"></textarea>
           </fieldset>
           
-          <fieldset class="field-rgpd">
+          <fieldset class="field-rgpd form-rgpd">
             <label for="rgpd">He leído y acepto la <a href="">política de privacidad</a></label>
             <input type="checkbox" name="rgpd" id="rgpd" class="visually-hidden">
           </fieldset>
 
-          <input class="btn" type="submit" value="Enviar">
-          <div id="resp"></div>
+          <input class="btn form-submit" type="submit" value="Enviar">
+
+          <div class="form-resp">
+            <span class="spinner"></span>
+          </div>
         </form>
 
         <div class="social">
@@ -133,13 +136,15 @@
 
     </section>
     <script>
-      const resp = document.querySelector('#resp')
+      const resp = document.querySelector('.form-resp');
+      const spinner = document.querySelector('.spinner');
       const form = document.querySelector('#contactForm');
-      form.onsubmit = () => {
-        resp.classList.add('spinner')
+      form.onsubmit = (x) => {
+        x.preventDefault();
+        spinner.style.display = 'flex';
         setTimeout(()=>{
-          resp.classList.remove('spinner')
-          resp.innerText = 'Formulario enviado correctamente'
+          spinner.style.display = 'none';
+          resp.innerHTML = '<p>Formulario enviado correctamente</p>'
         },2000)
       }
     </script>
