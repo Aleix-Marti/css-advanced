@@ -35,21 +35,26 @@
     <section class="intro">
       <h1 class="bg-text">Curso de CSS</h1>
     </section>
-    <section class="servicios">
+    <section class="learnings">
 
-      <label class="vista" for="vista">Vista</label>
-      <input class="selector" type="checkbox" name="vista" id="vista">
-      <ul class="list">
-        <li>item 1</li>
-        <li>item 2</li>
-        <li>item 3</li>
-        <li>item 4</li>
-        <li>item 5</li>
-        <li>item 6</li>
-        <li>item 7</li>
-        <li>item 8</li>
-        <li>item 9</li>
-        <li>item 10</li>
+      <div class="learnings-selector">
+        <label for="list"><img src="assets/list.svg" alt="List view"></label>
+        <input type="radio" name="view" id="list" class="visually-hidden" checked>
+        <label for="grid"><img src="assets/grid.svg" alt="Grid view"></label>
+        <input type="radio" name="view" id="grid" class="visually-hidden">
+      </div>
+
+      <ul class="learnings-list">
+        <li>:placeholder</li>
+        <li>:has</li>
+        <li>:is</li>
+        <li>Nesting</li>
+        <li>Custom Properties</li>
+        <li>Container Queries</li>
+        <li>Media Query Range</li>
+        <li>Visually Hidden</li>
+        <li>Inset Box Shadow</li>
+        <li>Filter</li>
       </ul>
 
     </section>
