@@ -14,29 +14,12 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <nav class="menu">
-      <img src="code.svg" alt="Home">
-      <a href="quien">Quén somos</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#learnings">Aprendizajes</a>
-      <a href="#contacto">Contacto</a>
-      <div class="theme">
-        <label for="light"><img class="light" src="light.svg" alt="Light Mode"></label>
-        <input type="radio" name="theme" id="light" class="visually-hidden">
-        <label for="dark"><img class="dark" src="dark.svg" alt="Dark Mode"></label>
-        <input type="radio" name="theme" id="dark" class="visually-hidden">
-        <label for="system"><img class="system" src="system.svg" alt="OS System Mode"></label>
-        <input type="radio" name="theme" id="system" class="visually-hidden" checked>
-      </div>
-    </nav>
-  </header>
+  
   <main>
-    <section class="intro">
-      <h1 class="bg-text">Curso de CSS</h1>
-    </section>
-    
+
     <section id="learnings" class="learnings">
+
+      <h2>Aprendizajes</h2>
 
       <div class="learnings-selector">
         <label for="list"><img src="assets/list.svg" alt="List view"></label>
@@ -66,17 +49,17 @@
           <label for="learning-vars">Custom Properties</label>
           <input type="checkbox" name="" id="learning-vars" class="visually-hidden">
         </li>
-        <li>
+        <!-- <li>
           <label for="learning-cont-query">Container Queries</label>
           <input type="checkbox" name="" id="learning-cont-query" class="visually-hidden">
         </li>
         <li>
           <label for="learning-media-range">Media Query Range</label>
           <input type="checkbox" name="" id="learning-media-range" class="visually-hidden">
-        </li>
+        </li> -->
         <li>
           <label for="learning-visual-hidden">Visually Hidden</label>
-          <input type="checkbox" name="" id="learning-vidual-hidden" class="visually-hidden">
+          <input type="checkbox" name="" id="learning-visual-hidden" class="visually-hidden">
         </li>
         <li>
           <label for="learning-inset-shadow">Inset Box Shadow</label>
@@ -117,14 +100,14 @@
 
           <fieldset class="field-check form-learn">
             <legend>¿Qué te gustaría aprender?</legend>
-            <label for="flex">Quiero aprender Flexbox</label>
-            <input type="checkbox" name="flex" id="flex" class="visually-hidden">
+            <label for="learn-flex">Quiero aprender Flexbox</label>
+            <input type="checkbox" name="flex" id="learn-flex" class="visually-hidden">
             <!-- <input type="checkbox" name="flex" id="flex"> -->
-            <label for="grid">Quiero aprender Grid</label>
-            <input type="checkbox" name="grid" id="grid" class="visually-hidden">
+            <label for="learn-grid">Quiero aprender Grid</label>
+            <input type="checkbox" name="grid" id="learn-grid" class="visually-hidden">
             <!-- <input type="checkbox" name="grid" id="grid"> -->
-            <label for="anim">Quiero aprender animaciones</label>
-            <input type="checkbox" name="anim" id="anim" class="visually-hidden">
+            <label for="learn-anim">Quiero aprender animaciones</label>
+            <input type="checkbox" name="anim" id="learn-anim" class="visually-hidden">
             <!-- <input type="checkbox" name="anim" id="anim"> -->
           </fieldset>
 
@@ -153,12 +136,12 @@
 
           <input class="btn form-submit" type="submit" value="Enviar">
 
-          <div class="form-resp">
+          <!-- <div class="form-resp">
             <span class="spinner"></span>
-          </div>
+          </div> -->
         </form>
 
-        <div class="social">
+        <!-- <div class="social">
           <a href="https://x.com" target="_blank"><img class="icon" src="assets/x.svg" alt="X"></a>
           <a href="https://www.facebook.com" target="_blank"><img class="icon" src="assets/facebook.svg" alt="Facebook"></a>
           <a href="https://discord.com/" target="_blank"><img class="icon" src="assets/discord.svg" alt="Discord"></a>
@@ -167,11 +150,11 @@
           <a href="https://linkedin.com/" target="_blank"><img class="icon" src="assets/linkedin.svg" alt="Linkedin"></a>
           <a href="https://telegram.com/" target="_blank"><img class="icon" src="assets/telegram.svg" alt="Telegram"></a>
           <a href="https://whatsapp.com/" target="_blank"><img class="icon" src="assets/whatsapp.svg" alt="Whatsapp"></a>
-        </div>
+        </div> -->
       </article>
 
     </section>
-    <script>
+    <!-- <script>
       const resp = document.querySelector('.form-resp');
       const spinner = document.querySelector('.spinner');
       const form = document.querySelector('#contactForm');
@@ -183,7 +166,7 @@
           resp.innerHTML = '<p>Formulario enviado correctamente</p>'
         },2000)
       }
-    </script>
+    </script> -->
   </main>
 </body>
 </html>
