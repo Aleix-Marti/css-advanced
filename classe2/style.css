@@ -24,6 +24,9 @@
   --theme-background: var(--color-dark);
   --theme-text: var(--color-lightgray);
 
+  --radius: 6px;
+
+
 
 
 
@@ -264,6 +267,10 @@ h2 {
   margin-block: 4rem;
 }
 
+section {
+  padding-block: 4rem;
+}
+
 
 /***************************************/
 /*            Sección Inicio           */
@@ -295,6 +302,78 @@ h2 {
   -webkit-text-fill-color: transparent;
   background-size: 200%;
   background-position: center;
+}
+
+/******************************************/
+/*           Sección Hihglights           */
+/******************************************/
+
+/* step 6*/
+.highlights {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* background-image: url(assets/keyboard.jpg); */
+  /* background-position: center; */
+  background: no-repeat center/100% url(assets/keyboard.jpg);
+  background-attachment: fixed;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* align-items: stretch; */
+  flex: 0 0 300px;
+  border-width: 6px;
+  border-style: solid;
+  border-image: linear-gradient(45deg, var(--color-gradient-blue),var(--color-gradient-green),var(--color-gradient-pink)) 1;
+  /* border-radius: 6px; */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  color: var(--color-black);
+  &:hover {
+    background-image: linear-gradient(45deg, var(--color-gradient-blue),var(--color-gradient-green),var(--color-gradient-pink));
+  }
+  & > :not(img) {
+    padding: 1rem; 
+  }
+  & img {
+    display: block;
+    /* object-fit: contain; */
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+  }
+  & .card-btn {
+    background-color: var(--theme-background);
+    margin-block-end: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: var(--radius);
+  }
+
+  &.card--rounded {
+    color: var(--theme-text);
+    border-radius: var(--radius);
+    /* background: linear-gradient(transparent, transparent) padding-box, */
+    background: linear-gradient(var(--theme-background), var(--theme-background)) padding-box,
+                linear-gradient(45deg, var(--color-gradient-blue),var(--color-gradient-green),var(--color-gradient-pink)) border-box;
+    & .card-btn {
+      background-color: var(--theme-primary);
+      color: var(--theme-background);
+    }
+    
+    &:hover {
+      background: linear-gradient(transparent, transparent) padding-box,
+      linear-gradient(45deg, var(--color-gradient-blue),var(--color-gradient-green),var(--color-gradient-pink)) border-box;
+
+      & .card-btn {
+        filter: invert()c
+      }
+    }
+  }
 }
 
 /******************************************/
