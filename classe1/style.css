@@ -95,7 +95,7 @@ h2 {
   }
 }
 
-.learnings {
+/* .learnings {
   max-width: 80vw;
   margin: 5rem auto;
 }
@@ -109,20 +109,27 @@ h2 {
 }
 .learnings:has(#grid:checked) .learnings-list {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
+} */
 
-/* .learnings {               <==========================
+.learnings {
   max-width: 80vw;
   margin: 5rem auto;
-  &:has(#list:checked){
+  & .learnings-list {
+    display: grid;
+    justify-content: center;
+    gap: 1rem;
+  }
+  &:has(#list:checked) {
     & .learnings-list {
       grid-template-columns: max-content;
     }
   }
-  &:has(#grid:checked) .learnings-list {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  &:has(#grid:checked) {
+    .learnings-list {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
   }
-} */
+}
 
 .learnings-list li {
   position: relative;
