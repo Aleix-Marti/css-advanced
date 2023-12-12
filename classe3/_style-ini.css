@@ -2,7 +2,6 @@
   /* colores */
   --color-green: hsl(120, 100%, 80%);
   --color-light-green: hsl(120, 100%, 90%);
-  /* step 1a */
   --color-blue: hsl(240, 100%, 30%);
   --color-light-blue: hsl(240, 100%, 60%);
 
@@ -50,11 +49,9 @@
   --icon-shadow-hover: drop-shadow(0 0 2px var(--theme-primary)) drop-shadow(0 0 4px var(--theme-primary));
 
 
-
-    /* step 5 */
-    --color-gradient-1: var(--color-gradient-cyan);
-    --color-gradient-2: var(--color-gradient-green);
-    --color-gradient-3: var(--color-gradient-palepink);
+  --color-gradient-1: var(--color-gradient-cyan);
+  --color-gradient-2: var(--color-gradient-green);
+  --color-gradient-3: var(--color-gradient-palepink);
 }
 
 *,
@@ -78,7 +75,6 @@
   clip: rect(0, 0, 0, 0);
 }
 
-/* step 2 */
 .selector {
   display: flex;
   justify-content: center;
@@ -88,7 +84,6 @@
   & label {
     cursor: pointer;
     &:hover {
-      /* filter: invert(1); */
       filter: invert(1) drop-shadow(0 0 2px var(--theme-primary))
     }
     &:has(+input:checked) {
@@ -97,7 +92,24 @@
   }
 }
 
-/* step 3 */
+
+
+
+.demo-filter {
+  display: block;
+  width: 200px;
+  height: auto;
+  filter: drop-shadow(0 0 5px var(--theme-primary));
+}
+.demo-svg {
+  width: 4rem;
+  height: 4rem;
+  transition: all .3s;
+  &:hover {
+    fill: var(--theme-primary)
+  }
+}
+
 .icon {
   display: inline-block;
   width: var(--icon-size);
@@ -111,76 +123,24 @@
   }
 }
 
-/* step 2 */
-.demo-fiter {
-  display: block;
-  width: 200px;
-  height: auto;
-  filter: drop-shadow(0 0 2px var(--theme-primary));
-  /* box-shadow: 0px 0px 2px 2px var(--theme-primary); */
-  /* &:hover {
-    fill: var(--theme-primary)
-  } */
-  display: none;
-}
-.demo-svg {
-  width: 4rem;
-  height: 4rem;
-  transition: all .3s;
-  &:hover {
-    fill: var(--theme-primary)
-  }
-}
-
-
-
-
-
 /*********************/
 /* estilos generales */
 /*********************/
 
 body {
-  /* step 1a */
+
   --theme-primary: var(--color-green);
   --theme-primary-alt: var(--color-light-green);
   --theme-background:var(--color-dark);
   --theme-text:var(--color-lightgray);
   --accent: var(--theme-primary);
-  /* --background-cover: linear-gradient(rgb(0 0 0 / .3), rgb(0 0 0 / .8)), url('assets/background-cover.png');
-   */
-  --background-cover: var(--background-cover-dark);
 
   background-color: var(--theme-background);
   color: var(--theme-text);
   font-family: 'Montserrat', Arial, sans-serif;
 }
 
-/* step 1a */
-/* @media (prefers-color-scheme: dark) {
-  body {
-  --theme-primary: var(--color-green);
-  --theme-background:var(--color-dark);
-  --theme-text:var(--color-lightgray);
-  --icon-shadow: drop-shadow(0 0 2px var(--theme-primary));
-  --icon-shadow-hover: drop-shadow(0 0 2px var(--theme-primary)) drop-shadow(0 0 4px var(--theme-primary));
-  --form-shadow-auto: inset 0 -10px 8px -12px var(--theme-primary), inset 2px 2px 5px 3px #000;
-
-  }
-}
-@media (prefers-color-scheme: light) {
-  body {
-  --theme-primary: var(--color-blue);
-  --theme-background:var(--color-lightgray);
-  --theme-text:var(--color-black);
-  --icon-shadow: none;
-  --icon-shadow-hover: drop-shadow(0 0 2px var(--theme-primary)) drop-shadow(0 0 4px var(--theme-primary));
-  --form-shadow: inset 0 -10px 8px -12px var(--theme-primary), inset 2px 2px 5px 3px hsl(0,0%,45%);
-  }
-} */
-
-/* step 1b */
-body:has(.theme #dark:checked) {
+body:has(#dark:checked) {
   --theme-primary: var(--color-green);
   --theme-primary-alt: var(--color-light-green);
   --theme-background:var(--color-dark);
@@ -192,29 +152,24 @@ body:has(.theme #dark:checked) {
   --color-gradient-1: var(--color-gradient-cyan);
   --color-gradient-2: var(--color-gradient-green);
   --color-gradient-3: var(--color-gradient-palepink);
-    --gradient: linear-gradient(-35deg, var(--color-gradient-1), var(--color-gradient-2), var(--color-gradient-3), var(--color-gradient-1));
-
-
+  --gradient: linear-gradient(-35deg, var(--color-gradient-1), var(--color-gradient-2), var(--color-gradient-3), var(--color-gradient-1));
 }
-body:has(.theme #light:checked) {
+body:has(#light:checked) {
   --theme-primary: var(--color-blue);
   --theme-primary-alt: var(--color-light-blue);
   --theme-background:var(--color-lightgray);
   --theme-text:var(--color-black);
   --icon-shadow: none;
-  --icon-shadow-hover: drop-shadow(0 0 2px var(--theme-primary)) drop-shadow(0 0 4px var(--theme-primary));
+  --icon-shadow-hover:  drop-shadow(0 0 4px var(--theme-primary));
   --form-shadow: inset 0 -10px 8px -12px var(--theme-primary), inset 2px 2px 5px 3px hsl(0,0%,45%);
   --background-cover: var(--background-cover-light);
-
-
   --color-gradient-1: var(--color-gradient-blue);
   --color-gradient-2: var(--color-gradient-yellow);
   --color-gradient-3: var(--color-gradient-pink);
-    --gradient: linear-gradient(-35deg, var(--color-gradient-1), var(--color-gradient-2), var(--color-gradient-3), var(--color-gradient-1));
-
+  --gradient: linear-gradient(-35deg, var(--color-gradient-1), var(--color-gradient-2), var(--color-gradient-3), var(--color-gradient-1));
 }
-/* step 1c */
-body:has(.theme #system:checked) {
+
+body:has(#system:checked) {
 
   @media (prefers-color-scheme: dark) {
     --theme-primary: var(--color-green);
@@ -225,12 +180,10 @@ body:has(.theme #system:checked) {
     --icon-shadow-hover: drop-shadow(0 0 2px var(--theme-primary)) drop-shadow(0 0 4px var(--theme-primary));
     --form-shadow-auto: inset 0 -10px 8px -12px var(--theme-primary), inset 2px 2px 5px 3px #000;
     --background-cover: var(--background-cover-dark);
-  
     --color-gradient-1: var(--color-gradient-cyan);
     --color-gradient-2: var(--color-gradient-green);
     --color-gradient-3: var(--color-gradient-palepink);
     --gradient: linear-gradient(-35deg, var(--color-gradient-1), var(--color-gradient-2), var(--color-gradient-3), var(--color-gradient-1));
-
   }
 
   @media (prefers-color-scheme: light) {
@@ -242,20 +195,17 @@ body:has(.theme #system:checked) {
     --icon-shadow-hover: drop-shadow(0 0 2px var(--theme-primary)) drop-shadow(0 0 4px var(--theme-primary));
     --form-shadow: inset 0 -10px 8px -12px var(--theme-primary), inset 2px 2px 5px 3px hsl(0,0%,45%);
     --background-cover: var(--background-cover-light);
-    
-
     --color-gradient-1: var(--color-gradient-blue);
     --color-gradient-2: var(--color-gradient-yellow);
     --color-gradient-3: var(--color-gradient-pink);
     --gradient: linear-gradient(-35deg, var(--color-gradient-1), var(--color-gradient-2), var(--color-gradient-3), var(--color-gradient-1));
-
   }
 }
-
 
 a {
   color: var(--theme-primary);
 }
+
 
 h1 {
   text-align: center;
@@ -284,39 +234,31 @@ section {
   display: grid;
   place-items: center;
   height: calc(100vh - 4rem);
-  /* background-image: url('assets/background-cover.png'); */
-  /* opacity: 0.3; */
-  /* background: linear-gradient(rgb(0 0 0 / .3), rgb(0 0 0 / .8)), url('assets/background-cover.png'); */
   background: var(--background-cover);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .gradient-text {
-  /* background: linear-gradient( -35deg, var(--theme-primary-alt), var(--color-black)); */
   background: var(--gradient);
-
-  /* background: url('assets/background-cover.png'); */
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-size: 200%;
+  background-size: 100%;
   background-position: center;
 }
+
 
 /******************************************/
 /*           Sección Hihglights           */
 /******************************************/
 
-/* step 6*/
 .highlights {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  /* background-image: url(assets/keyboard.jpg); */
-  /* background-position: center; */
-  /* background: no-repeat center/100% url(assets/keyboard.jpg); */
-  background: linear-gradient(rgb(0 0 0 / .3), rgb(0 0 0 / .3)), url(assets/keyboard.jpg);
+  background: linear-gradient(rgb(0 0 0 / .3), rgb(0 0 0 / .3)), 
+              url(assets/keyboard.jpg);
   background-attachment: fixed;
   background-size: 100%;
   background-position: center;
@@ -333,9 +275,9 @@ section {
   border-width: 6px;
   border-style: solid;
   border-image: linear-gradient(45deg, var(--color-gradient-blue),var(--color-gradient-green),var(--color-gradient-pink)) 1;
-  /* border-radius: 6px; */
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  border-radius: 6px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   color: var(--color-black);
   &:hover {
     background-image: linear-gradient(45deg, var(--color-gradient-blue),var(--color-gradient-green),var(--color-gradient-pink));
@@ -345,11 +287,11 @@ section {
   }
   & img {
     display: block;
-    /* object-fit: contain; */
     object-fit: cover;
     width: 100%;
     height: 200px;
   }
+
   & .card-btn {
     background-color: var(--theme-background);
     margin-block-end: 1rem;
@@ -361,32 +303,44 @@ section {
   &.card--rounded {
     color: var(--theme-text);
     border-radius: var(--radius);
-    /* background: linear-gradient(transparent, transparent) padding-box, */
     background: linear-gradient(var(--theme-background), var(--theme-background)) padding-box,
                 linear-gradient(45deg, var(--color-gradient-blue),var(--color-gradient-green),var(--color-gradient-pink)) border-box;
     & .card-btn {
       background-color: var(--theme-primary);
       color: var(--theme-background);
     }
-    
     &:hover {
       background: linear-gradient(transparent, transparent) padding-box,
-      linear-gradient(45deg, var(--color-gradient-blue),var(--color-gradient-green),var(--color-gradient-pink)) border-box;
-
+                  linear-gradient(45deg, var(--color-gradient-blue),var(--color-gradient-green),var(--color-gradient-pink)) border-box;
       & .card-btn {
-        filter: invert()c
+        filter: invert()
       }
     }
   }
 }
 
+
 /******************************************/
 /*            Sección Learnings           */
 /******************************************/
 
-/* label:has(+input:checked) {
-  filter: invert(0.5);
-} */
+.learnings-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  & label {
+    cursor: pointer;
+    &:hover {
+      filter: invert(1);
+    }
+    &:has(+input:checked) {
+      filter: invert(0.5);
+    }
+  }
+  
+}
 
 .learnings {
   max-width: 80vw;
@@ -414,7 +368,7 @@ section {
   border: 2px solid var(--theme-primary);
   border-radius: 4px;
   &:hover {
-    background: linear-gradient( 35deg, var(--theme-primary), var(--theme-primary-alt));
+    background-color: var(--theme-primary);
     color: var(--theme-background);
   }
   &:has(input:checked) {
@@ -525,7 +479,6 @@ section {
 .form {
   position: relative;
   display: grid;
-  margin-block-end: 4rem;
   gap: 4rem;
   accent-color: var(--accent);
   display: grid;
@@ -641,43 +594,6 @@ section {
   &:hover{
     background-color: var(--theme-primary);
     color: var(--theme-background);
-  }
-}
-
-/* step 6 */
-.form-resp {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--theme-primary);
-}
-.spinner {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background: conic-gradient(var(--theme-primary), transparent);
-  animation: spin 1s linear infinite;
-}
-.spinner::after{
-  content: '';
-  position: absolute;
-  width: 60%;
-  height: 60%;
-  background-color: var(--theme-background);
-  border-radius: 50%;
-  background-size: 50%;
-  background-repeat: no-repeat;
-}
-@keyframes spin {
-  0% {
-    transform: rotateZ(0);
-  }
-  100% {
-    transform: rotateZ(360deg);
   }
 }
 
@@ -803,16 +719,3 @@ section {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
