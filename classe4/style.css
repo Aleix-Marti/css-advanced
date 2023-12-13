@@ -55,8 +55,8 @@
 
 
   /* step */
-  --boxed-size: 1400px;
-  --boxed: max(calc((100vw - 1400px) / 2), 20px);
+  --boxed-size: 1000px;
+  --boxed: max(calc((100vw - var(--boxed-size)) / 2), 20px);
 }
 
 *,
@@ -65,6 +65,13 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+/* step */
+html {
+  scroll-behavior: smooth;
+  /* scroll-padding-top: 0rem; */
+  scroll-padding-top: 2rem;
 }
 
 /**************/
@@ -231,6 +238,10 @@ h2 {
   text-align: center;
   margin-block: 4rem;
   font-size: clamp(1rem, 5vw, 4rem);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: var(--theme-background);
 }
 
 
@@ -240,8 +251,8 @@ h2 {
   max-width: 80vw;
   margin: 0 auto;
 } */
-section {
-  padding-block: 4rem;
+section:not(.cards) {
+  padding-block: 2rem;
   padding-inline: var(--boxed);
 }
 
@@ -250,70 +261,32 @@ section {
 /*            Sección Inicio           */
 /***************************************/
 
+
 /* step */
+.label-toggle,
+.toggle-menu {
+  display: none;
+}
 .menu {
-  position: relative;
+  /* position: fixed; */
+  width: 100vw;
+  background-color: var(--theme-background);
+  /* box-shadow: inset 0 -10px 7px -11px var(--theme-primary-alt); */
+  z-index: 2;
+
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
   gap: 1rem;
   padding-inline: var(--boxed);
 
-  .toggle-menu-mobile {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+  & .theme {
+    margin-right: auto;
   }
-
-  &:has(#toggle-menu:checked) {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--theme-background);
-    z-index: 2;
-
-    .toggle-close {
-      display: block;
-    }
-    .toggle-open {
-      display: none;
-    }
-    .menu-link {
-      display: block;
-    }
-  }
-  &:has(#toggle-menu:not(:checked)){
-    .toggle-close {
-      display: none;
-    }
-    .toggle-open {
-      display: block;
-    }
-    .menu-link {
-      display: none;
-    }
-  } 
 }
-
-
-
-@media (width > 600px ){
-  .label-toggle,
-  .toggle-menu {
-    display: none;
-  }
-  .menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 1rem;
-    padding-inline: var(--boxed);
-    & .theme {
-      margin-right: auto;
-    }
-  }
+.menu-link {
+  display: block;
 }
 
 .theme {
@@ -341,6 +314,40 @@ section {
   background-position: center;
 }
 
+/***************************************/
+/*           Sección Historia          */
+/***************************************/
+
+/* step */
+.historia {
+  container-type: inline-size;
+  container-name: columns;
+}
+
+.curi,
+.hist {
+  column-count: 1;
+  & p {
+    padding-block-end: 1rem;
+    line-height: 1.5;
+  }
+}
+
+@container columns (width > 800px) {
+  .hist {
+    column-count: 2;
+  }
+}
+
+
+.shaped {
+  height: 15rem;
+  width: 15rem;
+  border-radius: 50%;
+  float: left;
+  shape-outside: circle(50%);
+  margin: .8rem;
+}
 
 /******************************************/
 /*           Sección Hihglights           */
@@ -369,7 +376,9 @@ section {
   gap: 2rem;
 }
 
+/* step */
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -397,6 +406,8 @@ section {
     height: 200px;
   }
   & .card-btn {
+    /* position: initial; */
+    position: relative;
     background: linear-gradient(45deg, var(--color-gradient-blue),var(--color-gradient-green),var(--color-gradient-pink));
     color: var(--color-black);
     margin-block-end: 2rem;
@@ -413,6 +424,12 @@ section {
     &:hover {
       --text-axis: 400;
       --upper-height: 760;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient( 35deg, hsl(40 100% 50% / .5), hsl(40 100% 50% / .5) 10%, hsl(80 100% 50% / .8) 10%, hsl(80 100% 50% / .8) 20% );
     }
   }
 }
@@ -919,5 +936,42 @@ section {
       border: none;
       box-shadow: var(--form-shadow);
     }
+  }
+}
+
+/* step */
+.form-resp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--theme-primary);
+}
+.spinner {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: conic-gradient(var(--theme-primary), transparent);
+  animation: spin 1s linear infinite;
+}
+.spinner::after{
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  background-color: var(--theme-background);
+  border-radius: 50%;
+  background-size: 50%;
+  background-repeat: no-repeat;
+}
+@keyframes spin {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
   }
 }

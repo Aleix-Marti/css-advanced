@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" media='screen and (width < 600px)' href="menu.css"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,8 +21,9 @@
         <label for="dark"><img class="dark" src="assets/dark.svg" alt="Dark Mode"></label>
         <input type="radio" name="theme" id="dark" class="visually-hidden">
         <label for="system"><img class="system" src="assets/system.svg" alt="OS System Mode"></label>
-        <input type="radio" name="theme" id="system" class="visually-hidden">
+        <input type="radio" name="theme" id="system" class="visually-hidden" checked>
       </div>
+      <a class="menu-link" href="#historia">Historia</a>
       <a class="menu-link" href="#destacados">Destacados</a>
       <a class="menu-link" href="#aprendizajes">Aprendizajes</a>
       <a class="menu-link" href="#contacto">Contacto</a>
@@ -35,18 +37,38 @@
     </nav>
   </header>
 
-  <script>
-    const links = document.querySelectorAll('.menu-link')
-    const toggle = document.querySelector('#toggle-menu')
-    links.forEach( x => {
-      x.addEventListener('click', () => toggle.checked = false )
-    })
-  </script>
-
 <section class="inicio">
   <h1 class="gradient-text">CSS</h1>
 </section>
 
+<section id="historia" class="historia">
+<!-- step -->
+  <!-- <h2 id="historia">Historia</h2> -->
+  <h2>Historia</h2>
+
+  <div class="hist">
+    <p>El CSS, conocido como "Cascading Style Sheets", es un lenguaje esencial en el desarrollo web. Este lenguaje permite definir la presentación y el estilo de un documento HTML. Con CSS, puedes controlar aspectos visuales como el diseño, colores, fuentes y disposición de los elementos en una página web.</p>
+    <p>Su historia se remonta a mediados de los años 90, cuando surgió la necesidad de separar el contenido de la presentación en la web. En 1996, el World Wide Web Consortium (W3C) publicó por primera vez el CSS1 como una forma de dar estilo a los documentos HTML. Desde entonces, ha evolucionado a través de diferentes versiones (CSS2, CSS3 y módulos específicos) para ofrecer más funcionalidades y capacidades de diseño.</p>
+    <p>La utilidad del CSS radica en su capacidad para mejorar la accesibilidad y la usabilidad de los sitios web. Al separar la estructura del contenido (HTML) de su presentación (CSS), facilita la mantenibilidad del código, permitiendo actualizaciones y modificaciones de estilo sin afectar el contenido.</p>
+    <p>Las aplicaciones del CSS son diversas y abarcan desde páginas web simples hasta complejas aplicaciones en línea. Se utiliza para diseñar sitios web corporativos, tiendas en línea, blogs, redes sociales y prácticamente cualquier plataforma en línea que requiera una interfaz visual atractiva y funcional.</p>
+    <p>En resumen, el CSS es un pilar fundamental en el desarrollo web moderno, permitiendo la creación de diseños atractivos, adaptables y funcionales para todo tipo de plataformas y dispositivos, desempeñando un papel crucial en la experiencia de usuario en línea.</p>
+  </div>
+</section>
+
+<section id="curiosidades" class="curiosidades">
+<!-- step -->
+  <!-- <h2 id="historia">Historia</h2> -->
+  <h2>Curiosidades</h2>
+
+  <div class="curi">
+    <img class="shaped" src="assets/peter.gif" alt="">
+    <p>El CSS, conocido como "Cascading Style Sheets", es un lenguaje esencial en el desarrollo web. Este lenguaje permite definir la presentación y el estilo de un documento HTML. Con CSS, puedes controlar aspectos visuales como el diseño, colores, fuentes y disposición de los elementos en una página web.</p>
+    <p>Su historia se remonta a mediados de los años 90, cuando surgió la necesidad de separar el contenido de la presentación en la web. En 1996, el World Wide Web Consortium (W3C) publicó por primera vez el CSS1 como una forma de dar estilo a los documentos HTML. Desde entonces, ha evolucionado a través de diferentes versiones (CSS2, CSS3 y módulos específicos) para ofrecer más funcionalidades y capacidades de diseño.</p>
+    <p>La utilidad del CSS radica en su capacidad para mejorar la accesibilidad y la usabilidad de los sitios web. Al separar la estructura del contenido (HTML) de su presentación (CSS), facilita la mantenibilidad del código, permitiendo actualizaciones y modificaciones de estilo sin afectar el contenido.</p>
+    <p>Las aplicaciones del CSS son diversas y abarcan desde páginas web simples hasta complejas aplicaciones en línea. Se utiliza para diseñar sitios web corporativos, tiendas en línea, blogs, redes sociales y prácticamente cualquier plataforma en línea que requiera una interfaz visual atractiva y funcional.</p>
+    <p>En resumen, el CSS es un pilar fundamental en el desarrollo web moderno, permitiendo la creación de diseños atractivos, adaptables y funcionales para todo tipo de plataformas y dispositivos, desempeñando un papel crucial en la experiencia de usuario en línea.</p>
+  </div>
+</section>
 
 <section id="destacados" class="highlights">
 
@@ -182,6 +204,10 @@
 
         <input class="btn form-submit" type="submit" value="Enviar">
 
+        <div class="form-resp">
+          <span class="spinner"></span>
+        </div>
+
       </form>
 
       <div class="social">
@@ -199,5 +225,28 @@
 
   </section>
   
+  <!-- step -->
+  <script>
+    const links = document.querySelectorAll('.menu-link')
+    const toggle = document.querySelector('#toggle-menu')
+    links.forEach( x => {
+      x.addEventListener('click', () => toggle.checked = false )
+    })
+  </script>
+
+  <!-- step -->
+  <script>
+    const resp = document.querySelector('.form-resp');
+    const spinner = document.querySelector('.spinner');
+    const form = document.querySelector('#contactForm');
+    form.onsubmit = (x) => {
+      x.preventDefault();
+      spinner.style.display = 'flex';
+      setTimeout(()=>{
+        spinner.style.display = 'none';
+        resp.innerHTML = '<p>Formulario enviado correctamente</p>'
+      },2000)
+    }
+  </script>
 </body>
 </html>

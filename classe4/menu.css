@@ -1,0 +1,61 @@
+/* step */
+
+.label-toggle,
+.toggle-menu {
+  display: block;
+  cursor: pointer;
+}
+
+.menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-inline: var(--boxed);
+  z-index: 0;
+
+  .toggle-menu-mobile {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  & .theme {
+    margin-right: auto;
+  }
+
+  &:has(#toggle-menu:checked) {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--theme-background);
+    z-index: 2;
+
+    & .theme {
+      margin-right: unset;
+    }
+
+    .toggle-close {
+      display: block;
+    }
+    .toggle-open {
+      display: none;
+    }
+    .menu-link {
+      display: block;
+    }
+  }
+  &:has(#toggle-menu:not(:checked)){
+    .toggle-close {
+      display: none;
+    }
+    .toggle-open {
+      display: block;
+    }
+    .menu-link {
+      display: none;
+    }
+  } 
+}
