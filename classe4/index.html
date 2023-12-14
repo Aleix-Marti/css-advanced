@@ -18,7 +18,7 @@
 <body>
 
   <!-- step 0 -->
-  <div class="box">BOX</div>
+  <!-- <div class="box">BOX</div> -->
 
   <header>
     <!-- step 4 - menu fixed & mobile  -->
@@ -35,6 +35,7 @@
       <a class="menu-link" href="#curiosidades">Curiosidades</a>
       <a class="menu-link" href="#destacados">Destacados</a>
       <a class="menu-link" href="#aprendizajes">Aprendizajes</a>
+      <a class="menu-link" href="#galeria">Galería</a>
       <a class="menu-link" href="#contacto">Contacto</a>
       <div class="toggle-menu-mobile">
         <label class="label-toggle" for="toggle-menu">
@@ -118,40 +119,65 @@
     <div>
       <ul class="learnings-list">
         <li>
-          <label for="learning-color-scheme">:prefers-color-scheme</label>
-          <input type="checkbox" name="" id="learning-color-scheme" class="visually-hidden">
+          <label for="learning-scroll-beh">Scroll Behavior</label>
+          <input type="checkbox" name="" id="learning-scroll-beh" class="visually-hidden">
         </li>
         <li>
-          <label for="learning-filter">filter</label>
-          <input type="checkbox" name="" id="learning-filter" class="visually-hidden">
+          <label for="learning-scroll-padding">Scroll Padding Top</label>
+          <input type="checkbox" name="" id="learning-scroll-padding" class="visually-hidden">
         </li>
         <li>
-          <label for="learning-gradient">gradient</label>
-          <input type="checkbox" name="" id="learning-gradient" class="visually-hidden">
+          <label for="learning-calc">calc()</label>
+          <input type="checkbox" name="" id="learning-calc" class="visually-hidden">
         </li>
         <li>
-          <label for="learning-hsl">hsl</label>
-          <input type="checkbox" name="" id="learning-hsl" class="visually-hidden">
+          <label for="learning-full-size-link">Full Size Link</label>
+          <input type="checkbox" name="" id="learning-full-size-link" class="visually-hidden">
         </li>
         <li>
-          <label for="learning-lch">lch</label>
-          <input type="checkbox" name="" id="learning-lch" class="visually-hidden">
+          <label for="learning-box-sizing">Box Sizing</label>
+          <input type="checkbox" name="" id="learning-box-sizing" class="visually-hidden">
         </li>
         <li>
-          <label for="learning-rgb">rgb alpha</label>
-          <input type="checkbox" name="" id="learning-rgb" class="visually-hidden">
+          <label for="learning-sticky">Sticky title</label>
+          <input type="checkbox" name="" id="learning-sticky" class="visually-hidden">
         </li>
         <li>
-          <label for="learning-background-clip">background-clip</label>
-          <input type="checkbox" name="" id="learning-background-clip" class="visually-hidden">
+          <label for="learning-spinner">Spinner</label>
+          <input type="checkbox" name="" id="learning-spinner" class="visually-hidden">
         </li>
         <li>
-          <label for="learning-backdrop">backdrop-filter</label>
-          <input type="checkbox" name="" id="learning-backdrop" class="visually-hidden">
+          <label for="learning-inline-block">inline/block padding/margin</label>
+          <input type="checkbox" name="" id="learning-inline-block" class="visually-hidden">
         </li>
       </ul>
     </div>
 
+  </section>
+
+  <section id="galeria" class="gallery">
+    
+    <h2>Galería</h2>
+    
+    <div class="masonry">
+      <img src="https://humancta.org/files/fauna/1.jpg">
+      <img src="https://humancta.org/files/fauna/2.jpg">
+      <img src="https://humancta.org/files/fauna/3.jpg">
+      <img src="https://humancta.org/files/fauna/4.jpg"> 
+      <img src="https://humancta.org/files/fauna/5.jpg">
+      <img src="https://humancta.org/files/fauna/6.jpg">
+      <img src="https://humancta.org/files/fauna/7.jpg">
+      <img src="https://humancta.org/files/fauna/8.jpg">
+      <img src="https://humancta.org/files/fauna/9.jpg">
+      <img src="https://humancta.org/files/fauna/10.jpg">
+      <img src="https://humancta.org/files/fauna/11.jpg">
+      <img src="https://humancta.org/files/fauna/12.jpg">
+      <img src="https://humancta.org/files/fauna/13.jpg">
+      <img src="https://humancta.org/files/fauna/14.jpg">
+      <img src="https://humancta.org/files/fauna/15.jpg">
+      <img src="https://humancta.org/files/fauna/16.jpg">
+      <img src="https://humancta.org/files/fauna/17.jpg">
+    </div>
   </section>
 
 
@@ -231,7 +257,11 @@
     </div>
 
   </section>
-  
+
+  <footer class="boxed">
+    <p>Made with <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Z"/></svg> by Aleix</p>
+  </footer>
+
   <!-- step -->
   <script>
     const links = document.querySelectorAll('.menu-link')
