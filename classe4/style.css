@@ -54,9 +54,11 @@
   --color-gradient-3: var(--color-gradient-palepink);
 
 
-  /* step */
+  /* step 1 - boxed */
   --boxed-size: 1000px;
   --boxed: max(calc((100vw - var(--boxed-size)) / 2), 20px);
+  /* step 0 - variable para menu height */
+  --menu-height: 4rem;
 }
 
 *,
@@ -67,11 +69,23 @@
   margin: 0;
 }
 
-/* step */
+/* step 0 */
+.box {
+  display: block;
+  width: 200px;
+  padding: 20px;
+  border: 10px solid blue;
+  margin-left: 4rem;
+  margin-inline-start: 4rem;
+}
+
+
+
+
+/* step 2 - scroll & padding scroll */
 html {
   scroll-behavior: smooth;
-  /* scroll-padding-top: 0rem; */
-  scroll-padding-top: 2rem;
+  scroll-padding-top: 4rem;
 }
 
 /**************/
@@ -153,7 +167,7 @@ body {
 
 }
 
-/* step 0 */
+/* step 0  - media query or */
 /* @media (width < 600px), (width > 1200px) {
   body {
     background-color: lime;
@@ -234,45 +248,74 @@ h1 {
 
 
 
+/* step 3 - h2 sticky */
+
+/* desktop + mobile */
 h2 {
   text-align: center;
-  margin-block: 4rem;
+  /* margin-block-end: 4rem; */
   font-size: clamp(1rem, 5vw, 4rem);
+  /* step 3 - h2 sticky */
   position: sticky;
-  top: 0;
+  /* top: 0; */
+  top: var(--menu-height);
   z-index: 2;
   background-color: var(--theme-background);
 }
 
 
-/* step */
-/* section { */
-/* section:is(.learnings,.contact) {
-  max-width: 80vw;
-  margin: 0 auto;
+/* desktop con mobile arriba */
+/* @media screen and ( width > 600px ){
+  h2 {
+    position: relative;
+    top: 0;
+  }
 } */
-section:not(.cards) {
-  padding-block: 2rem;
+
+
+
+
+/* only desktop y mobile a parte */
+/* h2 { 
+  text-align: center;
+  margin-block-end: 2rem;
+  font-size: clamp(1rem, 5vw, 4rem);
+  position: relative;
+  top: 0;
+  background-color: var(--theme-background);
+} */
+
+
+
+
+/* step 1 */
+section > *:not(h2) {
+  /* step 3 - h2 sticky */
+  /* padding-block-end: 2rem; */
   padding-inline: var(--boxed);
 }
 
+/* step 3 - h2 sticky */
+section > div {
+  padding-block: 2rem;
+}
 
 /***************************************/
 /*            Sección Inicio           */
 /***************************************/
 
 
-/* step */
+/* step 4 - menu fixed & mobile */
 .label-toggle,
 .toggle-menu {
   display: none;
 }
 .menu {
-  /* position: fixed; */
+  position: fixed;
   width: 100vw;
   background-color: var(--theme-background);
   /* box-shadow: inset 0 -10px 7px -11px var(--theme-primary-alt); */
-  z-index: 2;
+  z-index: 3;
 
   display: flex;
   flex-direction: row;
@@ -290,19 +333,20 @@ section:not(.cards) {
 }
 
 .theme {
-  height: 4rem;
-  /* margin: 0 auto; */
+  height: var(--menu-height);
 }
 
-/* step 0 */
+/* step 0 - ngrok svh */
 .inicio {
   display: grid;
   place-items: center;
-  /* height: calc(100vh - 4rem); */
-  height: calc(100svh - 4rem);
+  /* height: calc(100vh - var(--menu-height)); */
+  /* height: calc(100svh - var(--menu-height)); *//* menu no fixed */
+  height: calc(100svh); /* menu fixed */
   background: var(--background-cover);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .gradient-text {
@@ -318,20 +362,19 @@ section:not(.cards) {
 /*           Sección Historia          */
 /***************************************/
 
-/* step */
+/* step 5 - columns */
 .historia {
   container-type: inline-size;
   container-name: columns;
 }
 
-.curi,
-.hist {
+:is(.datos,.hist) {
   column-count: 1;
   & p {
     padding-block-end: 1rem;
     line-height: 1.5;
   }
-}
+} 
 
 @container columns (width > 800px) {
   .hist {
@@ -339,14 +382,19 @@ section:not(.cards) {
   }
 }
 
-
+/* step 6 - shape outside */
 .shaped {
-  height: 15rem;
-  width: 15rem;
+  width: 100%;
   border-radius: 50%;
-  float: left;
-  shape-outside: circle(50%);
-  margin: .8rem;
+  margin-block: 1rem;
+  @media screen and ( width > 600px ){
+    height: 15rem;
+    width: 15rem;
+    margin-inline: 1rem;
+    float: left;
+    shape-outside: circle(50%);
+  }
+
 }
 
 /******************************************/
@@ -376,7 +424,7 @@ section:not(.cards) {
   gap: 2rem;
 }
 
-/* step */
+/* step 8 - full card */
 .card {
   position: relative;
   display: flex;
@@ -406,6 +454,7 @@ section:not(.cards) {
     height: 200px;
   }
   & .card-btn {
+    /* step 8 - full card */
     /* position: initial; */
     position: relative;
     background: linear-gradient(45deg, var(--color-gradient-blue),var(--color-gradient-green),var(--color-gradient-pink));
@@ -425,6 +474,7 @@ section:not(.cards) {
       --text-axis: 400;
       --upper-height: 760;
     }
+    /* step 8 - full card */
     &::before {
       content: '';
       position: absolute;
@@ -540,8 +590,15 @@ section:not(.cards) {
     background-color: var(--theme-primary);
     color: var(--theme-background);
   }
+  /* step 8 - full card */
   & label {
+    position: initial;
     cursor: pointer;
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
   }
 }
 
@@ -649,7 +706,6 @@ section:not(.cards) {
   position: relative;
   display: grid;
   gap: 4rem;
-  /* width: 100%; step */
   accent-color: var(--accent);
   grid-template-areas: 
     "switch"
@@ -939,7 +995,7 @@ section:not(.cards) {
   }
 }
 
-/* step */
+/* step 7 - spinner */
 .form-resp {
   display: flex;
   justify-content: center;

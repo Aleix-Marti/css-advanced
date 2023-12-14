@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+  <!-- step 0 -->
+<!-- <html lang="en" dir="rtl"> -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+  <!-- step 4 - menu fixed & mobile  -->
   <link rel="stylesheet" media='screen and (width < 600px)' href="menu.css"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +16,12 @@
 
 </head>
 <body>
+
+  <!-- step 0 -->
+  <div class="box">BOX</div>
+
   <header>
+    <!-- step 4 - menu fixed & mobile  -->
     <nav class="menu">
       <div class="theme selector">
         <label for="light"><img class="light" src="assets/light.svg" alt="Light Mode"></label>
@@ -24,6 +32,7 @@
         <input type="radio" name="theme" id="system" class="visually-hidden" checked>
       </div>
       <a class="menu-link" href="#historia">Historia</a>
+      <a class="menu-link" href="#curiosidades">Curiosidades</a>
       <a class="menu-link" href="#destacados">Destacados</a>
       <a class="menu-link" href="#aprendizajes">Aprendizajes</a>
       <a class="menu-link" href="#contacto">Contacto</a>
@@ -41,9 +50,8 @@
   <h1 class="gradient-text">CSS</h1>
 </section>
 
+<!-- step 5 - columns  -->
 <section id="historia" class="historia">
-<!-- step -->
-  <!-- <h2 id="historia">Historia</h2> -->
   <h2>Historia</h2>
 
   <div class="hist">
@@ -55,18 +63,16 @@
   </div>
 </section>
 
+<!-- step 6 - shape outside  -->
 <section id="curiosidades" class="curiosidades">
-<!-- step -->
-  <!-- <h2 id="historia">Historia</h2> -->
   <h2>Curiosidades</h2>
 
-  <div class="curi">
+  <div class="datos">
     <img class="shaped" src="assets/peter.gif" alt="">
-    <p>El CSS, conocido como "Cascading Style Sheets", es un lenguaje esencial en el desarrollo web. Este lenguaje permite definir la presentación y el estilo de un documento HTML. Con CSS, puedes controlar aspectos visuales como el diseño, colores, fuentes y disposición de los elementos en una página web.</p>
-    <p>Su historia se remonta a mediados de los años 90, cuando surgió la necesidad de separar el contenido de la presentación en la web. En 1996, el World Wide Web Consortium (W3C) publicó por primera vez el CSS1 como una forma de dar estilo a los documentos HTML. Desde entonces, ha evolucionado a través de diferentes versiones (CSS2, CSS3 y módulos específicos) para ofrecer más funcionalidades y capacidades de diseño.</p>
-    <p>La utilidad del CSS radica en su capacidad para mejorar la accesibilidad y la usabilidad de los sitios web. Al separar la estructura del contenido (HTML) de su presentación (CSS), facilita la mantenibilidad del código, permitiendo actualizaciones y modificaciones de estilo sin afectar el contenido.</p>
-    <p>Las aplicaciones del CSS son diversas y abarcan desde páginas web simples hasta complejas aplicaciones en línea. Se utiliza para diseñar sitios web corporativos, tiendas en línea, blogs, redes sociales y prácticamente cualquier plataforma en línea que requiera una interfaz visual atractiva y funcional.</p>
-    <p>En resumen, el CSS es un pilar fundamental en el desarrollo web moderno, permitiendo la creación de diseños atractivos, adaptables y funcionales para todo tipo de plataformas y dispositivos, desempeñando un papel crucial en la experiencia de usuario en línea.</p>
+    <p>El primer borrador de CSS fue propuesto por Håkon Wium Lie en 1994. Se creó para complementar HTML y separar la estructura del contenido de su presentación. Desde entonces, ha evolucionado significativamente y se han añadido nuevas funcionalidades en las diferentes versiones.</p>
+    <p>La "C" en CSS significa "Cascading", refiriéndose a la forma en que se resuelven los conflictos cuando múltiples reglas se aplican a un mismo elemento. Esta cascada sigue un orden de prioridad basado en la especificidad, la importancia y la ubicación del estilo.</p>
+    <p>Existen herramientas como Sass, Less y Stylus que extienden las capacidades de CSS permitiendo variables, funciones, anidamiento y más. Por otro lado, los postprocesadores como PostCSS ofrecen la capacidad de transformar y optimizar el código CSS, agregando prefijos automáticos, reduciendo su tamaño, entre otras optimizaciones.</p>
+    <p>El estándar CSS sigue creciendo. Se han introducido módulos específicos que añaden nuevas funcionalidades, como Grid Layout para diseños de cuadrícula, Flexbox para diseños flexibles, y Variables CSS para reutilizar valores en todo el documento.</p>
   </div>
 </section>
 
@@ -74,7 +80,7 @@
 
   <h2>Destacados</h2>
 
-  <section class="cards">
+  <div class="cards">
     <article class="card">
       <h3 class="card-title">Desata tu creatividad</h3>
       <img class="card-img" src="assets/creativity.jpg" alt="monitor de ordenador con una nube de colores">
@@ -95,7 +101,7 @@
       <p class="card-text">Aprende las técnicas más actuales de CSS. Domina efectos, layouts y animaciones para destacar en el mundo del diseño web.</p>
       <a class="card-btn" href="#contactForm">Comienza hoy</a>
     </article>
-  </section>
+  </div>
 
 </section>
 
@@ -109,41 +115,42 @@
       <label for="grid"><img src="assets/grid.svg" alt="Grid view"></label>
       <input type="radio" name="view" id="grid" class="visually-hidden" checked>
     </div>
-
-    <ul class="learnings-list">
-      <li>
-        <label for="learning-color-scheme">:prefers-color-scheme</label>
-        <input type="checkbox" name="" id="learning-color-scheme" class="visually-hidden">
-      </li>
-      <li>
-        <label for="learning-filter">filter</label>
-        <input type="checkbox" name="" id="learning-filter" class="visually-hidden">
-      </li>
-      <li>
-        <label for="learning-gradient">gradient</label>
-        <input type="checkbox" name="" id="learning-gradient" class="visually-hidden">
-      </li>
-      <li>
-        <label for="learning-hsl">hsl</label>
-        <input type="checkbox" name="" id="learning-hsl" class="visually-hidden">
-      </li>
-      <li>
-        <label for="learning-lch">lch</label>
-        <input type="checkbox" name="" id="learning-lch" class="visually-hidden">
-      </li>
-      <li>
-        <label for="learning-rgb">rgb alpha</label>
-        <input type="checkbox" name="" id="learning-rgb" class="visually-hidden">
-      </li>
-      <li>
-        <label for="learning-background-clip">background-clip</label>
-        <input type="checkbox" name="" id="learning-background-clip" class="visually-hidden">
-      </li>
-      <li>
-        <label for="learning-backdrop">backdrop-filter</label>
-        <input type="checkbox" name="" id="learning-backdrop" class="visually-hidden">
-      </li>
-    </ul>
+    <div>
+      <ul class="learnings-list">
+        <li>
+          <label for="learning-color-scheme">:prefers-color-scheme</label>
+          <input type="checkbox" name="" id="learning-color-scheme" class="visually-hidden">
+        </li>
+        <li>
+          <label for="learning-filter">filter</label>
+          <input type="checkbox" name="" id="learning-filter" class="visually-hidden">
+        </li>
+        <li>
+          <label for="learning-gradient">gradient</label>
+          <input type="checkbox" name="" id="learning-gradient" class="visually-hidden">
+        </li>
+        <li>
+          <label for="learning-hsl">hsl</label>
+          <input type="checkbox" name="" id="learning-hsl" class="visually-hidden">
+        </li>
+        <li>
+          <label for="learning-lch">lch</label>
+          <input type="checkbox" name="" id="learning-lch" class="visually-hidden">
+        </li>
+        <li>
+          <label for="learning-rgb">rgb alpha</label>
+          <input type="checkbox" name="" id="learning-rgb" class="visually-hidden">
+        </li>
+        <li>
+          <label for="learning-background-clip">background-clip</label>
+          <input type="checkbox" name="" id="learning-background-clip" class="visually-hidden">
+        </li>
+        <li>
+          <label for="learning-backdrop">backdrop-filter</label>
+          <input type="checkbox" name="" id="learning-backdrop" class="visually-hidden">
+        </li>
+      </ul>
+    </div>
 
   </section>
 
@@ -151,11 +158,10 @@
   <section id="contacto" class="contact">
     <h2>Contacto</h2>
 
-    <article class="contact-info">
+    <div class="contact-info">
       <form id="contactForm" class="form" action="">
 
         <fieldset class="form-style form-switch">
-          <!-- <legend>Elige un estilo</legend> -->
           <label class="toggle" for="line">Line</label>
           <input type="radio" name="theme-form" id="line" checked class="check-toggle">
           <input type="radio" name="theme-form" id="shadow" class="check-toggle">
@@ -198,12 +204,13 @@
         </fieldset>
         
         <fieldset class="field-rgpd form-rgpd">
-          <label for="rgpd">He leído y acepto la <a href="">política de privacidad</a></label>
+          <label for="rgpd"><span>He leído y acepto la <a href="">política de privacidad</a></span></label>
           <input type="checkbox" name="rgpd" id="rgpd" class="visually-hidden">
         </fieldset>
 
         <input class="btn form-submit" type="submit" value="Enviar">
 
+        <!-- step 7 - spinner -->
         <div class="form-resp">
           <span class="spinner"></span>
         </div>
@@ -221,7 +228,7 @@
         <a href="https://whatsapp.com/" target="_blank"><img class="icon" src="assets/whatsapp.svg" alt="Whatsapp"></a>
       </div>
 
-    </article>
+    </div>
 
   </section>
   
