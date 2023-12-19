@@ -902,6 +902,7 @@ section > div {
   border-radius: 4px;
   box-shadow: none;
   transition: all .3s;
+  animation: colorDown 1s linear forwards;
   &:hover {
     background-color: var(--theme-primary);
     color: var(--theme-background);
@@ -909,9 +910,9 @@ section > div {
     animation: colorUp 1s linear forwards;
   }
   /* step 13 */
-  &:not(:hover) {
+  /* &:not(:hover) {
     animation: colorDown 1s linear forwards;
-  }
+  } */
   &:has(input:checked) {
     background-color: var(--theme-primary);
     color: var(--theme-background);
