@@ -164,7 +164,7 @@ html {
   }
 }
 
-/* step 10 */
+/* step 10b */
 .animated-gradient {
   all: unset;
   display: flex;
@@ -216,6 +216,31 @@ html {
   to {
     transform: translate(-50%,-50%) rotatez(360deg);
   }
+}
+/* step 10a */
+.slide-gradient {
+  all: unset;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  color: var(--color-black);
+  align-items: center;
+  text-align: center;
+  width: var(--w);
+  height: var(--h);
+  border: 2px solid black;
+  border-radius: 0;
+  z-index: 2;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--transition);
+  background: var(--gradient);
+  background-size: calc( var(--w) * 2) var(--h);
+  background-position: left;
+  &:hover{
+    border-radius: 1rem;
+    background-position: right;
+  } 
 }
 
 /* step 11 */

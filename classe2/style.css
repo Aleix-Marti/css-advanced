@@ -374,7 +374,7 @@ section {
       linear-gradient(45deg, var(--color-gradient-blue),var(--color-gradient-green),var(--color-gradient-pink)) border-box;
 
       & .card-btn {
-        filter: invert()c
+        filter: invert();
       }
     }
   }
